@@ -1,0 +1,22 @@
+Utworzono bank o nazwie: ING, zarejestrowany w kraju: Polska, o kodzie SWIFT: ABCDEFGH
+Utworzono bank o nazwie: UBS, zarejestrowany w kraju: Szwajcaria, o kodzie SWIFT: ABCDEFGH
+Utworzono nowe konto w banku: ING, o numerze: 12345678901234567890123456, dla klienta: Jacek Skoczylas
+Utworzono nowe konto w banku: ING, o numerze: 11223344556677889900112233, dla klienta: Jan Kowalski
+Utworzono nowe konto w banku: UBS, o numerze: 54671588785761997433549765, dla klienta: Hans Guttman
+2016/10/26 02:10:18 Transackcja nr 100 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 800.0
+2016/10/26 02:10:18 Transackcja nr 10000 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 800.0
+2016/10/26 02:10:18 Transackcja nr 100 - Wykonano przelew na konto: 12345678901234567890123456, na kwote: 450.0
+2016/10/26 02:10:18 Transackcja nr 10000 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 450.0
+2016/10/26 02:10:18 Transackcja nr 101 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 300.0
+2016/10/26 02:10:18 Transackcja nr 10001 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 300.0
+2016/10/26 02:10:18 Transackcja nr 101 - Wykonano przelew na konto: 12345678901234567890123456, na kwote: 160.0
+2016/10/26 02:10:18 Transackcja nr 10001 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 160.0
+2016/10/26 02:10:18 Transackcja nr 1 - Wykonano przelew na konto: 54671588785761997433549765, na kwote: 100.0, na konto o kodzie SWIFT: ABCDEFGH
+2016/10/26 02:10:18 Transackcja nr 10002 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 100.0
+2016/10/26 02:10:18 Transackcja nr 2 - Wykonano przelew na konto: 54671588785761997433549765, na kwote: 200.0, na konto o kodzie SWIFT: ABCDEFGH
+2016/10/26 02:10:18 Transackcja nr 10003 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 200.0
+2016/10/26 02:10:18 Transackcja nr 3 - Wykonano przelew na konto: 54671588785761997433549765, na kwote: 300.0, na konto o kodzie SWIFT: ABCDEFGH
+2016/10/26 02:10:18 Transackcja nr 10004 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 300.0
+Stan konta o numerze: 12345678901234567890123456, wynosi: 2090.0 zl
+Stan konta o numerze: 11223344556677889900112233, wynosi: 510.0 zl
+Stan konta o numerze: 54671588785761997433549765, wynosi: 400.0 zl
