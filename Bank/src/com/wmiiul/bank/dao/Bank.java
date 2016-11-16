@@ -9,7 +9,7 @@ import com.wmiiul.bank.pojo.Client;
 import com.wmiiul.exceptions.wrongSwiftCodeException;
 
 public class Bank {
-	
+
 	private static Logger logger = Logger.getLogger(Bank.class.getName());
 
 	private String name;
@@ -25,12 +25,37 @@ public class Bank {
 		this.name = name;
 		this.country = country;
 		this.swift = swift;
-		logger.info("Utworzono bank o nazwie: "+name+", zarejestrowany w kraju: "+country+", o kodzie SWIFT: "+swift);
+		logger.info("Utworzono bank o nazwie: " + name + ", zarejestrowany w kraju: " + country + ", o kodzie SWIFT: "
+				+ swift);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getSwift() {
+		return swift;
+	}
+
+	public void setSwift(String swift) {
+		this.swift = swift;
 	}
 
 	public void addAccount(String accountNumber, String description, String firstName, String lastName, String pesel) {
 		Client client = this.findClient(pesel);
-		if(client == null){
+		if (client == null) {
 			client = new Client(firstName, lastName, pesel);
 			clients.add(client);
 		}
@@ -55,21 +80,4 @@ public class Bank {
 		}
 		return null;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public String getSwift() {
-		return swift;
-	}
-
 }

@@ -3,14 +3,14 @@ package com.wmiiul.bank.pojo;
 import com.wmiiul.exceptions.wrongPeselNumberException;
 
 public class Client {
-	
+
 	private String firstName;
 	private String lastName;
 	private String pesel;
 	private int wireOutCounter = 0;
-	
+
 	public Client(String firstName, String lastName, String pesel) {
-		if(pesel.length()!=11){
+		if (pesel.length() != 11) {
 			throw new wrongPeselNumberException();
 		}
 		this.firstName = firstName;
@@ -46,5 +46,5 @@ public class Client {
 		wireOutCounter++;
 		return wireOutCounter;
 	}
-	
+
 }

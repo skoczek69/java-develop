@@ -11,13 +11,16 @@ public abstract class Transaction {
 	private Date date;
 	private String description;
 	private int operationNumber;
+	private TransactionEnum transactionType;
 
-	public Transaction(String account, double amount, String description, int operationNumber) {
+	public Transaction(TransactionEnum transactionType, String account, double amount, String description,
+			int operationNumber) {
 		this.account = account;
 		this.amount = amount;
 		this.date = new Date();
 		this.description = description;
 		this.operationNumber = operationNumber;
+		this.transactionType = transactionType;
 	}
 
 	public String getAccount() {
@@ -36,6 +39,14 @@ public abstract class Transaction {
 		this.amount = amount;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -52,9 +63,17 @@ public abstract class Transaction {
 		this.operationNumber = operationNumber;
 	}
 
+	public TransactionEnum getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(TransactionEnum transactionType) {
+		this.transactionType = transactionType;
+	}
+
 	public String transactionInfo() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		return dateFormat.format(date).toString()+" Transakcja nr " + operationNumber + " - ";
+		return dateFormat.format(date).toString() + " Transakcja nr " + operationNumber + " - ";
 	}
 
 }
