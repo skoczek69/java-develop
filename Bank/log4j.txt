@@ -1,34 +1,9 @@
-Utworzono bank o nazwie: ING, zarejestrowany w kraju: Polska, o kodzie SWIFT: ABCDEFGH
-Utworzono bank o nazwie: UBS, zarejestrowany w kraju: Szwajcaria, o kodzie SWIFT: ABCVWXYZ
-Utworzono nowe konto w banku: ING, o numerze: 12345678901234567890123456, dla klienta: Jacek Skoczylas
-Utworzono nowe konto w banku: ING, o numerze: 11223344556677889900112233, dla klienta: Jan Kowalski
-Utworzono nowe konto w banku: UBS, o numerze: 54671588785761997433549765, dla klienta: Hans Guttman
-2016/11/16 08:59:00 Transakcja nr 100 - Wykonano przelew na konto: 12345678901234567890123456, na kwote: 800,00 zl, Opis: Zaplata za monitor
-2016/11/16 08:59:00 Transakcja nr 10000 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 800,00 zl, Opis: Zaplata za monitor
-2016/11/16 08:59:00 Transakcja nr 100 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 450,00 zl, Opis: Zaplata za telefon
-2016/11/16 08:59:00 Transakcja nr 10000 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 450,00 zl, Opis: Zaplata za telefon
-2016/11/16 08:59:00 Transakcja nr 101 - Wykonano przelew na konto: 12345678901234567890123456, na kwote: 300,00 zl, Opis: Zaplata za klawiature
-2016/11/16 08:59:00 Transakcja nr 10001 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 300,00 zl, Opis: Zaplata za klawiature
-2016/11/16 08:59:00 Transakcja nr 101 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 160,00 zl, Opis: Rekompensata za pomoc
-2016/11/16 08:59:00 Transakcja nr 10001 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 160,00 zl, Opis: Rekompensata za pomoc
-2016/11/16 08:59:00 Transakcja nr 1 - Wykonano przelew na konto: 12345678901234567890123456, o kodzie SWIFT: ABCDEFGH, na kwote: 100,00 zl, Opis: Payment for keyboard
-2016/11/16 08:59:00 Transakcja nr 10002 - Otrzymano przelew z konta: 54671588785761997433549765, na kwote: 100,00 zl, Opis: Payment for keyboard
-2016/11/16 08:59:00 Transakcja nr 1 - Wykonano przelew na konto: 54671588785761997433549765, o kodzie SWIFT: ABCVWXYZ, na kwote: 200,00 zl, Opis: Payment for printer
-2016/11/16 08:59:00 Transakcja nr 10000 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 200,00 zl, Opis: Payment for printer
-2016/11/16 08:59:00 Transakcja nr 2 - Wykonano przelew na konto: 12345678901234567890123456, o kodzie SWIFT: ABCDEFGH, na kwote: 300,00 zl, Opis: Payment for computer game
-2016/11/16 08:59:00 Transakcja nr 10003 - Otrzymano przelew z konta: 54671588785761997433549765, na kwote: 300,00 zl, Opis: Payment for computer game
-Stan konta o numerze: 12345678901234567890123456, wynosi: 1690.0 zl
-Stan konta o numerze: 11223344556677889900112233, wynosi: 510.0 zl
-Stan konta o numerze: 54671588785761997433549765, wynosi: 800.0 zl
-Lista transakcji dla konta o numerze: 12345678901234567890123456
-2016/11/16 08:59:00 Transakcja nr 10000 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 800,00 zl, Opis: Zaplata za monitor
-2016/11/16 08:59:00 Transakcja nr 100 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 450,00 zl, Opis: Zaplata za telefon
-2016/11/16 08:59:00 Transakcja nr 10001 - Otrzymano przelew z konta: 11223344556677889900112233, na kwote: 300,00 zl, Opis: Zaplata za klawiature
-2016/11/16 08:59:00 Transakcja nr 101 - Wykonano przelew na konto: 11223344556677889900112233, na kwote: 160,00 zl, Opis: Rekompensata za pomoc
-2016/11/16 08:59:00 Transakcja nr 10002 - Otrzymano przelew z konta: 54671588785761997433549765, na kwote: 100,00 zl, Opis: Payment for keyboard
-2016/11/16 08:59:00 Transakcja nr 1 - Wykonano przelew na konto: 54671588785761997433549765, o kodzie SWIFT: ABCVWXYZ, na kwote: 200,00 zl, Opis: Payment for printer
-2016/11/16 08:59:00 Transakcja nr 10003 - Otrzymano przelew z konta: 54671588785761997433549765, na kwote: 300,00 zl, Opis: Payment for computer game
-Lista transakcji dla konta o numerze: 54671588785761997433549765
-2016/11/16 08:59:00 Transakcja nr 1 - Wykonano przelew na konto: 12345678901234567890123456, o kodzie SWIFT: ABCDEFGH, na kwote: 100,00 zl, Opis: Payment for keyboard
-2016/11/16 08:59:00 Transakcja nr 10000 - Otrzymano przelew z konta: 12345678901234567890123456, na kwote: 200,00 zl, Opis: Payment for printer
-2016/11/16 08:59:00 Transakcja nr 2 - Wykonano przelew na konto: 12345678901234567890123456, o kodzie SWIFT: ABCDEFGH, na kwote: 300,00 zl, Opis: Payment for computer game
+Utworzono bank o nazwie: mBank, zarejestrowany w kraju: Polska, o kodzie SWIFT: 123123456456789
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000001, dla klienta: Jacek Skoczylas
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000002, dla klienta: Jan Kowalski
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000003, dla klienta: Hans Guttman
+2016/12/07 09:14:44 Transakcja nr 100 - Wykonano przelew na konto: 100000000000002, na kwote: 300,00 zl, Opis: Check operation
+2016/12/07 09:14:44 Transakcja nr 10000 - Otrzymano przelew z konta: 100000000000001, na kwote: 300,00 zl, Opis: Deposit operation
+2016/12/07 09:14:44 Transakcja nr 1 - Wykonano przelew na konto: 100100000000001, o kodzie SWIFT: ABCVWXYZ, na kwote: 200,00 zl, Opis: Payment for printer
+2016/12/07 09:14:44 Transakcja nr 10000 - Otrzymano przelew z konta: 100100000000001, na kwote: 100,00 zl, Opis: Operation 3
+2016/12/07 09:14:44 Transakcja nr 101 - Wykonano przelew na konto: 100000000000002, na kwote: 100,00 zl, Opis: Operation 1

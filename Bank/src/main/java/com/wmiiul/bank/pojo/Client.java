@@ -1,6 +1,6 @@
 package com.wmiiul.bank.pojo;
 
-import com.wmiiul.exceptions.wrongPeselNumberException;
+import com.wmiiul.bank.exceptions.wrongPeselNumberException;
 
 public class Client {
 
@@ -10,7 +10,7 @@ public class Client {
 	private int wireOutCounter = 0;
 
 	public Client(String firstName, String lastName, String pesel) {
-		if (pesel.length() != 11) {
+		if (pesel.length() != 11 || validPesel(pesel) == false) {
 			throw new wrongPeselNumberException();
 		}
 		this.firstName = firstName;
@@ -40,6 +40,24 @@ public class Client {
 
 	public void setPesel(String pesel) {
 		this.pesel = pesel;
+	}
+
+	public boolean validPesel(String pesel) {
+		int i = 0;
+		int sum = 0;
+		try {
+			for (char digit : pesel.substring(0, 10).toCharArray()) {
+				int[] multipliers = { 1, 3, 7, 9 };
+				sum += Integer.parseInt(String.valueOf(digit)) * multipliers[i % 4];
+				i++;
+			}
+		} catch (NumberFormatException e) {
+			throw new wrongPeselNumberException();
+		}
+		if (!((10 - (sum % 10)) == Integer.parseInt(String.valueOf(pesel.charAt(10))))) {
+			return false;
+		}
+		return true;
 	}
 
 	public int getWireOutValue() {

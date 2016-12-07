@@ -1,4 +1,4 @@
-package com.wmiiul.exceptions;
+package com.wmiiul.bank.exceptions;
 
 public class wrongPeselNumberException extends RuntimeException {
 

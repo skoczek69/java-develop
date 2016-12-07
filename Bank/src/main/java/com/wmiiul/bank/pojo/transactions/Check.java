@@ -1,4 +1,4 @@
-package com.wmiiul.bank.pojo;
+package com.wmiiul.bank.pojo.transactions;
 
 import org.apache.log4j.Logger;
 

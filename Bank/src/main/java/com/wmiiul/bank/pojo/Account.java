@@ -4,8 +4,13 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import com.wmiiul.exceptions.wrongAccountNumberException;
-import com.wmiiul.exceptions.wrongOperationTypeException;
+import com.wmiiul.bank.exceptions.noEnoughFundsException;
+import com.wmiiul.bank.exceptions.wrongOperationTypeException;
+import com.wmiiul.bank.pojo.transactions.Check;
+import com.wmiiul.bank.pojo.transactions.Deposit;
+import com.wmiiul.bank.pojo.transactions.Transaction;
+import com.wmiiul.bank.pojo.transactions.TransactionEnum;
+import com.wmiiul.bank.pojo.transactions.Wireout;
 
 public class Account {
 
@@ -17,16 +22,13 @@ public class Account {
 	private String country;
 	private String swift;
 	private Client client;
-	private double balance = 1000;
+	private double balance = 0;
 	private int checkCounter = 99;
 	private int depositCounter = 9999;
 	private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
 	public Account(String accountNumber, String description, String bankName, String country, String swift,
-			Client client) throws wrongAccountNumberException {
-		if (accountNumber.length() != 26) {
-			throw new wrongAccountNumberException();
-		}
+			Client client) {
 		this.accountNumber = accountNumber;
 		this.description = description;
 		this.bankName = bankName;
@@ -85,6 +87,14 @@ public class Account {
 		this.client = client;
 	}
 
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public int checkValue() {
 		checkCounter++;
 		return checkCounter;
@@ -99,14 +109,14 @@ public class Account {
 			String description) {
 		switch (transactionType) {
 		case CHECK:
+			substractFunds(amount);
 			Check check = new Check(transactionType, accountNumber, amount, description, checkValue());
 			transactions.add(check);
-			balance -= amount;
 			break;
 		case DEPOSIT:
+			addFunds(amount);
 			Deposit deposit = new Deposit(transactionType, accountNumber, amount, description, depositValue());
 			transactions.add(deposit);
-			balance += amount;
 			break;
 		default:
 			throw new wrongOperationTypeException();
@@ -118,14 +128,25 @@ public class Account {
 			String country, String swift) {
 		switch (transactionType) {
 		case WIREOUT:
+			substractFunds(amount);
 			Wireout wipeout = new Wireout(transactionType, accountNumber, amount, description, client.getWireOutValue(),
 					country, swift);
 			transactions.add(wipeout);
-			balance -= amount;
 			break;
 		default:
 			throw new wrongOperationTypeException();
 		}
+	}
+
+	private void addFunds(Double amount) {
+		balance += amount;
+	}
+
+	private void substractFunds(Double amount) {
+		if (balance < amount) {
+			throw new noEnoughFundsException();
+		}
+		balance -= amount;
 	}
 
 	public void amountInfo() {
