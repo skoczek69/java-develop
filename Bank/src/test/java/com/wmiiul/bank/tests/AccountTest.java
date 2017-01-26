@@ -2,6 +2,7 @@ package com.wmiiul.bank.tests;
 
 import static org.junit.Assert.assertEquals;
 
+import org.easymock.EasyMock;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -9,25 +10,35 @@ import com.wmiiul.bank.exceptions.noEnoughFundsException;
 import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
 import com.wmiiul.bank.pojo.Account;
 import com.wmiiul.bank.pojo.Bank;
+import com.wmiiul.bank.pojo.Client;
 import com.wmiiul.bank.pojo.transactions.TransactionEnum;
 
 public class AccountTest {
 
-	private static Bank bank;
-	private static Bank bank2;
+	
 	private static Account account;
 	private static Account account2;
 	private static Account account3;
+	private static Client mockedClient = EasyMock.createMock(Client.class);
+	private static Client mockedClient2 = EasyMock.createMock(Client.class);
+	private static Client mockedClient3 = EasyMock.createMock(Client.class);
 
 	@BeforeClass
 	public static void initObjects() {
-		bank = new Bank("mBank", "Polska", "123123456456789");
-		bank.addAccount("Konto osobiste", "Jacek", "Skoczylas", "94090608312");
-		bank.addAccount("Konto firmowe", "Jan", "Kowalski", "69032808354");
-		bank.addAccount("Konto osobiste", "Hans", "Guttman", "94082210699");
-		account = bank.findAccount("100000000000001");
-		account2 = bank.findAccount("100000000000002");
-		account3 = bank.findAccount("100000000000003");
+		EasyMock.expect(mockedClient.getFirstName()).andReturn("Jacek");
+		EasyMock.expect(mockedClient.getLastName()).andReturn("Skoczylas");
+		EasyMock.expect(mockedClient.getWireOutValue()).andReturn(0);
+		EasyMock.replay(mockedClient);
+		EasyMock.expect(mockedClient2.getFirstName()).andReturn("Jakub");
+		EasyMock.expect(mockedClient2.getLastName()).andReturn("Nowak");
+		EasyMock.replay(mockedClient2);
+		EasyMock.expect(mockedClient3.getFirstName()).andReturn("Artur");
+		EasyMock.expect(mockedClient3.getLastName()).andReturn("Kowalski");
+		EasyMock.replay(mockedClient3);
+		account = new Account("100000000000002", "Konto osobiste", "mBank", mockedClient);
+		account2 = new Account("100000000000003", "Konto firmowe", "mBank", mockedClient2);
+		account3 = new Account("100000000000004", "Konto osobiste", "mBank", mockedClient3);
+		
 		account.setBalance(1000);
 		account.doTransaction(TransactionEnum.CHECK, "100000000000002", 300.0, "Check operation");
 		account2.doTransaction(TransactionEnum.DEPOSIT, "100000000000001", 300.0, "Deposit operation");
@@ -50,7 +61,7 @@ public class AccountTest {
 	
 	@Test
 	public void operationTest2() {
-		account.doTransaction(TransactionEnum.WIREOUT, "100100000000001", 200.0, "Payment for printer",
+		account.doTransaction(TransactionEnum.WIREOUT, "100100000000001", 200.0, "Operation 2",
 				"Szwajcaria", "ABCVWXYZ");
 	}
 	
@@ -63,4 +74,5 @@ public class AccountTest {
 	public void operationTest4() {
 		account.doTransaction(TransactionEnum.CHECK, "100000000000002", 1000.0, "Operation 4");
 	}
+
 }

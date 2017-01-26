@@ -17,22 +17,6 @@ public class Wireout extends Transaction {
 		logger.info(transactionInfo());
 	}
 
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getSwift() {
-		return swift;
-	}
-
-	public void setSwift(String swift) {
-		this.swift = swift;
-	}
-
 	@Override
 	public String transactionInfo() {
 		return super.transactionInfo() + "Wykonano przelew na konto: " + super.getAccount() + ", o kodzie SWIFT: "

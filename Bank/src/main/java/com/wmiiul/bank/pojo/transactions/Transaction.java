@@ -27,48 +27,16 @@ public abstract class Transaction {
 		return account;
 	}
 
-	public void setAccount(String account) {
-		this.account = account;
-	}
-
 	public double getAmount() {
 		return amount;
-	}
-
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getOperationNumber() {
-		return operationNumber;
-	}
-
-	public void setOperationNumber(int operationNumber) {
-		this.operationNumber = operationNumber;
-	}
-
 	public TransactionEnum getTransactionType() {
 		return transactionType;
-	}
-
-	public void setTransactionType(TransactionEnum transactionType) {
-		this.transactionType = transactionType;
 	}
 
 	public String transactionInfo() {

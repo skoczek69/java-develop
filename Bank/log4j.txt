@@ -1,9 +1,12 @@
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000002, dla klienta: Jacek Skoczylas
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000003, dla klienta: Jakub Nowak
+Utworzono nowe konto w banku: mBank, o numerze: 100000000000004, dla klienta: Artur Kowalski
+2017/01/26 22:58:40 Transakcja nr 100 - Wykonano przelew na konto: 100000000000002, na kwote: 300,00 zl, Opis: Check operation
+2017/01/26 22:58:40 Transakcja nr 10000 - Otrzymano przelew z konta: 100000000000001, na kwote: 300,00 zl, Opis: Deposit operation
+2017/01/26 22:58:40 Transakcja nr 0 - Wykonano przelew na konto: 100100000000001, o kodzie SWIFT: ABCVWXYZ, na kwote: 200,00 zl, Opis: Operation 2
+2017/01/26 22:58:40 Transakcja nr 10000 - Otrzymano przelew z konta: 100100000000001, na kwote: 100,00 zl, Opis: Operation 3
+2017/01/26 22:58:40 Transakcja nr 101 - Wykonano przelew na konto: 100000000000002, na kwote: 100,00 zl, Opis: Operation 1
 Utworzono bank o nazwie: mBank, zarejestrowany w kraju: Polska, o kodzie SWIFT: 123123456456789
+Utworzono bank o nazwie: Eurobank, zarejestrowany w kraju: Polska, o kodzie SWIFT: 123456789000000
 Utworzono nowe konto w banku: mBank, o numerze: 100000000000001, dla klienta: Jacek Skoczylas
-Utworzono nowe konto w banku: mBank, o numerze: 100000000000002, dla klienta: Jan Kowalski
-Utworzono nowe konto w banku: mBank, o numerze: 100000000000003, dla klienta: Hans Guttman
-2016/12/07 09:14:44 Transakcja nr 100 - Wykonano przelew na konto: 100000000000002, na kwote: 300,00 zl, Opis: Check operation
-2016/12/07 09:14:44 Transakcja nr 10000 - Otrzymano przelew z konta: 100000000000001, na kwote: 300,00 zl, Opis: Deposit operation
-2016/12/07 09:14:44 Transakcja nr 1 - Wykonano przelew na konto: 100100000000001, o kodzie SWIFT: ABCVWXYZ, na kwote: 200,00 zl, Opis: Payment for printer
-2016/12/07 09:14:44 Transakcja nr 10000 - Otrzymano przelew z konta: 100100000000001, na kwote: 100,00 zl, Opis: Operation 3
-2016/12/07 09:14:44 Transakcja nr 101 - Wykonano przelew na konto: 100000000000002, na kwote: 100,00 zl, Opis: Operation 1
+Utworzono bank o nazwie: ING, zarejestrowany w kraju: Polska, o kodzie SWIFT: 123456789012345

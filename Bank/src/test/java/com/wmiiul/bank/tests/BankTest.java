@@ -5,8 +5,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.wmiiul.bank.exceptions.bankAccountNotExistException;
 import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
+import com.wmiiul.bank.pojo.Account;
 import com.wmiiul.bank.pojo.Bank;
+import com.wmiiul.bank.pojo.Client;
 
 public class BankTest {
 
@@ -17,6 +20,7 @@ public class BankTest {
 	public static void initObjects() {
 		bank = new Bank("mBank", "Polska", "123123456456789");
 		bank2 = new Bank("Eurobank", "Polska", "123456789000000");
+		bank.addAccount("Konto osobiste", "Jacek", "Skoczylas", "94090608312");
 	}
 
 	@Test
@@ -31,11 +35,11 @@ public class BankTest {
 
 	@Test(expected = wrongSwiftCodeException.class)
 	public void swiftCodeValidationFalse2() {
-		Bank ing = new Bank("ING", "Polska", "123R567890123456");
+		Bank ing = new Bank("ING", "Polska", "123R56789012345");
 	}
 
 	@Test
-	public void accountNumberTest() {
+	public void accountNameTest() {
 		assertEquals(bank.getName(), "mBank");
 	}
 
@@ -48,6 +52,24 @@ public class BankTest {
 	public void swiftCodeTest() {
 		assertEquals(bank.getSwift(), "123123456456789");
 	}
+	
+	@Test
+	public void accountNameChangeTest() {
+		bank2.setName("Deutsche Bank");
+		assertEquals(bank2.getName(), "Deutsche Bank");
+	}
+
+	@Test
+	public void countryChangeTest() {
+		bank2.setCountry("Niemcy");
+		assertEquals(bank2.getCountry(), "Niemcy");
+	}
+
+	@Test
+	public void swiftCodeChangeTest() {
+		bank2.setSwift("123456789000001");
+		assertEquals(bank2.getSwift(), "123456789000001");
+	}
 
 	@Test
 	public void accountNumberPrefixTest() {
@@ -58,5 +80,29 @@ public class BankTest {
 	public void accountNumberPrefixTest2() {
 		assertEquals(bank2.getAccountNumberPrefix(), "1001");
 	}
+	
+	@Test(expected = bankAccountNotExistException.class)
+	public void findAccountFalse() {
+		bank.findAccount("123123456456789");
+	}
+	
+	@Test
+	public void findAccountTrue() {
+		Account account = bank.findAccount("100000000000001");
+		assertEquals(account.getAccountNumber(), "100000000000001");
+	}
+	
+	@Test
+	public void findClientFalse() {
+		Client client = bank.findClient("96061119854");
+		assertEquals(client, null);
+	}
+	
+	@Test
+	public void findClientTrue() {
+		Client client = bank.findClient("94090608312");
+		assertEquals(client.getPesel(), "94090608312");
+	}
+	
 
 }

@@ -11,35 +11,37 @@ import com.wmiiul.bank.pojo.Client;
 public class ClientTest {
 
 	private static Client client;
+	private static Client client2;
 
 	@BeforeClass
 	public static void initObjects() {
 		client = new Client("Jacek", "Skoczylas", "94090608312");
+		client2 = new Client("Marek", "Kowalski", "96061119854");
 	}
 
 	@Test
 	public void peselValidationTrue() {
-		Client client2 = new Client("Jan", "Kowalski", "69032808354");
+		Client client3 = new Client("Jan", "Kowalski", "69032808354");
 	}
 
 	@Test(expected = wrongPeselNumberException.class)
 	public void peselValidationFalse() {
-		Client client2 = new Client("Jan", "Kowalski", "6903280835");
+		Client client3 = new Client("Jan", "Kowalski", "6903280835");
 	}
 
 	@Test(expected = wrongPeselNumberException.class)
 	public void peselValidationFalse2() {
-		Client client2 = new Client("Jan", "Kowalski", "690328083548");
+		Client client3 = new Client("Jan", "Kowalski", "690328083548");
 	}
 
 	@Test(expected = wrongPeselNumberException.class)
 	public void peselValidationFalse3() {
-		Client client2 = new Client("Jan", "Kowalski", "69032G08354");
+		Client client3 = new Client("Jan", "Kowalski", "69032G08354");
 	}
 
 	@Test(expected = wrongPeselNumberException.class)
 	public void peselValidationFalse4() {
-		Client client2 = new Client("Jan", "Kowalski", "69032808364");
+		Client client3 = new Client("Jan", "Kowalski", "69032808364");
 	}
 	
 	@Test
@@ -55,6 +57,24 @@ public class ClientTest {
 	@Test
 	public void peselTest() {
 		assertEquals(client.getPesel(), "94090608312");
+	}
+	
+	@Test
+	public void firstNameChangeTest() {
+		client2.setFirstName("Magda");
+		assertEquals(client2.getFirstName(), "Magda");
+	}
+
+	@Test
+	public void lastNameChangeTest() {
+		client2.setLastName("Nowak");
+		assertEquals(client2.getLastName(), "Nowak");
+	}
+
+	@Test
+	public void peselChangeTest() {
+		client2.setPesel("96061115348");
+		assertEquals(client2.getPesel(), "96061115348");
 	}
 
 }

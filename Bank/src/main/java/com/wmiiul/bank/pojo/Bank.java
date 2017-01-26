@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import com.wmiiul.bank.exceptions.maximumBanksNumberException;
+import com.wmiiul.bank.exceptions.bankAccountNotExistException;
 import com.wmiiul.bank.exceptions.wrongPeselNumberException;
 import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
 
@@ -30,9 +30,6 @@ public class Bank {
 		this.country = country;
 		this.swift = swift;
 		accountNumberPrefixCounter++;
-		if (accountNumberPrefixCounter >= 10000) {
-			throw new maximumBanksNumberException();
-		}
 		this.accountNumberPrefix = String.valueOf(accountNumberPrefixCounter);
 		logger.info("Utworzono bank o nazwie: " + name + ", zarejestrowany w kraju: " + country + ", o kodzie SWIFT: "
 				+ swift);
@@ -66,18 +63,14 @@ public class Bank {
 		return accountNumberPrefix;
 	}
 
-	public void setAccountNumberPrefix(String accountNumberPrefix) {
-		this.accountNumberPrefix = accountNumberPrefix;
-	}
-
 	public void addAccount(String description, String firstName, String lastName, String pesel) {
 		Client client = this.findClient(pesel);
 		if (client == null) {
 			client = new Client(firstName, lastName, pesel);
+			clients.add(client);
 		}
-		clients.add(client);
 		accountNumberCounter++;
-		Account account = new Account(makeAccountNumber(), description, name, country, swift, client);
+		Account account = new Account(makeAccountNumber(), description, name, client);
 		accounts.add(account);
 	}
 
@@ -104,7 +97,7 @@ public class Bank {
 				return account;
 			}
 		}
-		return null;
+		throw new bankAccountNotExistException();
 	}
 
 	private void validSwiftCode(String swift) {
@@ -113,7 +106,7 @@ public class Bank {
 				Integer.parseInt(String.valueOf(digit));
 			}
 		} catch (NumberFormatException e) {
-			throw new wrongPeselNumberException();
+			throw new wrongSwiftCodeException();
 		}
 	}
 }
