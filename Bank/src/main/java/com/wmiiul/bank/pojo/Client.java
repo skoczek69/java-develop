@@ -1,17 +1,20 @@
 package com.wmiiul.bank.pojo;
 
-import com.wmiiul.bank.exceptions.wrongPeselNumberException;
+import com.wmiiul.bank.exceptions.WrongPeselNumberException;
 
 public class Client {
 
+	private final int CORRECT_PESEL_LENTGH = 11;
+	private static final int WIRE_OUT_COUNTER_START_VALUE = 0;
+	
 	private String firstName;
 	private String lastName;
 	private String pesel;
-	private int wireOutCounter = 0;
+	private int wireOutCounter = WIRE_OUT_COUNTER_START_VALUE;
 
 	public Client(String firstName, String lastName, String pesel) {
-		if (pesel.length() != 11 || validPesel(pesel) == false) {
-			throw new wrongPeselNumberException();
+		if (pesel.length() != CORRECT_PESEL_LENTGH || validPesel(pesel) == false) {
+			throw new WrongPeselNumberException();
 		}
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -52,7 +55,7 @@ public class Client {
 				i++;
 			}
 		} catch (NumberFormatException e) {
-			throw new wrongPeselNumberException();
+			throw new WrongPeselNumberException();
 		}
 		if (!((10 - (sum % 10)) == Integer.parseInt(String.valueOf(pesel.charAt(10))))) {
 			return false;

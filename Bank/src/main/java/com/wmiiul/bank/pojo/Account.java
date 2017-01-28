@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import com.wmiiul.bank.exceptions.noEnoughFundsException;
+import com.wmiiul.bank.exceptions.NoEnoughFundsException;
+import com.wmiiul.bank.exceptions.WrongTransactionTypeException;
 import com.wmiiul.bank.pojo.transactions.Check;
 import com.wmiiul.bank.pojo.transactions.Deposit;
 import com.wmiiul.bank.pojo.transactions.Transaction;
@@ -15,13 +16,17 @@ public class Account {
 
 	private static Logger logger = Logger.getLogger(Account.class.getName());
 
+	private final int CHECK_COUNTER_INITIAL_VALUE = 99;
+	private final int DEPOSIT_COUNTER_INITIAL_VALUE = 9999;
+	private final double INITIAL_ACCOUNT_BALANCE = 0;
+
 	private String accountNumber;
 	private String description;
 	private String bankName;
 	private Client client;
-	private double balance = 0;
-	private int checkCounter = 99;
-	private int depositCounter = 9999;
+	private double balance = INITIAL_ACCOUNT_BALANCE;
+	private int checkCounter = CHECK_COUNTER_INITIAL_VALUE;
+	private int depositCounter = DEPOSIT_COUNTER_INITIAL_VALUE;
 	private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 
 	public Account(String accountNumber, String description, String bankName, Client client) {
@@ -68,6 +73,9 @@ public class Account {
 			Deposit deposit = new Deposit(transactionType, accountNumber, amount, description, depositValue());
 			transactions.add(deposit);
 			break;
+		default:
+			throw new WrongTransactionTypeException();
+
 		}
 	}
 
@@ -80,6 +88,8 @@ public class Account {
 					country, swift);
 			transactions.add(wipeout);
 			break;
+		default:
+			throw new WrongTransactionTypeException();
 		}
 	}
 
@@ -89,7 +99,7 @@ public class Account {
 
 	private void substractFunds(Double amount) {
 		if (balance < amount) {
-			throw new noEnoughFundsException();
+			throw new NoEnoughFundsException();
 		}
 		balance -= amount;
 	}

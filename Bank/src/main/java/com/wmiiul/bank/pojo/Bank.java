@@ -4,26 +4,29 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import com.wmiiul.bank.exceptions.bankAccountNotExistException;
-import com.wmiiul.bank.exceptions.wrongPeselNumberException;
-import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
+import com.wmiiul.bank.exceptions.BankAccountNotExistException;
+import com.wmiiul.bank.exceptions.WrongSwiftCodeException;
 
 public class Bank {
 
 	private static Logger logger = Logger.getLogger(Bank.class.getName());
 
+	private final int CORRECT_SWIFT_LENTGH = 15;
+	private final int ACCOUNT_NUMBER_COUNTER_START_VALUE = 0;
+	private static final int ACCOUNT_NUMBER_PREFIX_COUNTER_START_VALUE = 999;
+
 	private String name;
 	private String country;
 	private String swift;
 	private String accountNumberPrefix;
-	private int accountNumberCounter = 0;
-	private static int accountNumberPrefixCounter = 999;
+	private int accountNumberCounter = ACCOUNT_NUMBER_COUNTER_START_VALUE;
+	private static int accountNumberPrefixCounter = ACCOUNT_NUMBER_PREFIX_COUNTER_START_VALUE;
 	private ArrayList<Client> clients = new ArrayList<Client>();
 	private ArrayList<Account> accounts = new ArrayList<Account>();
 
 	public Bank(String name, String country, String swift) {
-		if (swift.length() != 15) {
-			throw new wrongSwiftCodeException();
+		if (swift.length() != CORRECT_SWIFT_LENTGH) {
+			throw new WrongSwiftCodeException();
 		}
 		validSwiftCode(swift);
 		this.name = name;
@@ -97,7 +100,7 @@ public class Bank {
 				return account;
 			}
 		}
-		throw new bankAccountNotExistException();
+		throw new BankAccountNotExistException();
 	}
 
 	private void validSwiftCode(String swift) {
@@ -106,7 +109,7 @@ public class Bank {
 				Integer.parseInt(String.valueOf(digit));
 			}
 		} catch (NumberFormatException e) {
-			throw new wrongSwiftCodeException();
+			throw new WrongSwiftCodeException();
 		}
 	}
 }

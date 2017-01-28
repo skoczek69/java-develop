@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.wmiiul.bank.exceptions.bankAccountNotExistException;
-import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
+import com.wmiiul.bank.exceptions.BankAccountNotExistException;
+import com.wmiiul.bank.exceptions.WrongSwiftCodeException;
 import com.wmiiul.bank.pojo.Account;
 import com.wmiiul.bank.pojo.Bank;
 import com.wmiiul.bank.pojo.Client;
@@ -28,12 +28,12 @@ public class BankTest {
 		Bank ing = new Bank("ING", "Polska", "123456789012345");
 	}
 
-	@Test(expected = wrongSwiftCodeException.class)
+	@Test(expected = WrongSwiftCodeException.class)
 	public void swiftCodeValidationFalse() {
 		Bank ing = new Bank("ING", "Polska", "1234567890123456");
 	}
 
-	@Test(expected = wrongSwiftCodeException.class)
+	@Test(expected = WrongSwiftCodeException.class)
 	public void swiftCodeValidationFalse2() {
 		Bank ing = new Bank("ING", "Polska", "123R56789012345");
 	}
@@ -81,7 +81,7 @@ public class BankTest {
 		assertEquals(bank2.getAccountNumberPrefix(), "1001");
 	}
 	
-	@Test(expected = bankAccountNotExistException.class)
+	@Test(expected = BankAccountNotExistException.class)
 	public void findAccountFalse() {
 		bank.findAccount("123123456456789");
 	}

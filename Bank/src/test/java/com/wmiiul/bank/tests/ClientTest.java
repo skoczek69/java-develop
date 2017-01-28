@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.wmiiul.bank.exceptions.wrongPeselNumberException;
+import com.wmiiul.bank.exceptions.WrongPeselNumberException;
 import com.wmiiul.bank.pojo.Client;
 
 public class ClientTest {
@@ -24,22 +24,22 @@ public class ClientTest {
 		Client client3 = new Client("Jan", "Kowalski", "69032808354");
 	}
 
-	@Test(expected = wrongPeselNumberException.class)
+	@Test(expected = WrongPeselNumberException.class)
 	public void peselValidationFalse() {
 		Client client3 = new Client("Jan", "Kowalski", "6903280835");
 	}
 
-	@Test(expected = wrongPeselNumberException.class)
+	@Test(expected = WrongPeselNumberException.class)
 	public void peselValidationFalse2() {
 		Client client3 = new Client("Jan", "Kowalski", "690328083548");
 	}
 
-	@Test(expected = wrongPeselNumberException.class)
+	@Test(expected = WrongPeselNumberException.class)
 	public void peselValidationFalse3() {
 		Client client3 = new Client("Jan", "Kowalski", "69032G08354");
 	}
 
-	@Test(expected = wrongPeselNumberException.class)
+	@Test(expected = WrongPeselNumberException.class)
 	public void peselValidationFalse4() {
 		Client client3 = new Client("Jan", "Kowalski", "69032808364");
 	}

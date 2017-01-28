@@ -6,8 +6,9 @@ import org.easymock.EasyMock;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.wmiiul.bank.exceptions.noEnoughFundsException;
-import com.wmiiul.bank.exceptions.wrongSwiftCodeException;
+import com.wmiiul.bank.exceptions.NoEnoughFundsException;
+import com.wmiiul.bank.exceptions.WrongSwiftCodeException;
+import com.wmiiul.bank.exceptions.WrongTransactionTypeException;
 import com.wmiiul.bank.pojo.Account;
 import com.wmiiul.bank.pojo.Bank;
 import com.wmiiul.bank.pojo.Client;
@@ -70,9 +71,20 @@ public class AccountTest {
 		account.doTransaction(TransactionEnum.DEPOSIT, "100100000000001", 100.0, "Operation 3");
 	}
 	
-	@Test(expected = noEnoughFundsException.class)
+	@Test(expected = NoEnoughFundsException.class)
 	public void operationTest4() {
 		account.doTransaction(TransactionEnum.CHECK, "100000000000002", 1000.0, "Operation 4");
+	}
+	
+	@Test(expected = WrongTransactionTypeException.class)
+	public void operationTest5() {
+		account.doTransaction(TransactionEnum.BLIK, "100000000000002", 10.0, "Operation 5");
+	}
+	
+	@Test(expected = WrongTransactionTypeException.class)
+	public void operationTest6() {
+		account.doTransaction(TransactionEnum.BLIK_ABROAD, "100100000000001", 100.0, "Operation 6",
+				"Niemcy", "ABCVWXYZ");
 	}
 
 }
