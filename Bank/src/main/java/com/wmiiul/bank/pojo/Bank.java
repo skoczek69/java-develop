@@ -11,8 +11,8 @@ public class Bank {
 
 	private static Logger logger = Logger.getLogger(Bank.class.getName());
 
-	private final int CORRECT_SWIFT_LENTGH = 15;
-	private final int ACCOUNT_NUMBER_COUNTER_START_VALUE = 0;
+	private static final int CORRECT_SWIFT_LENTGH = 15;
+	private static final int ACCOUNT_NUMBER_COUNTER_START_VALUE = 0;
 	private static final int ACCOUNT_NUMBER_PREFIX_COUNTER_START_VALUE = 999;
 
 	private String name;

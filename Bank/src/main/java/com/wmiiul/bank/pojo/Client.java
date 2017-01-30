@@ -4,7 +4,7 @@ import com.wmiiul.bank.exceptions.WrongPeselNumberException;
 
 public class Client {
 
-	private final int CORRECT_PESEL_LENTGH = 11;
+	private static final int CORRECT_PESEL_LENTGH = 11;
 	private static final int WIRE_OUT_COUNTER_START_VALUE = 0;
 	
 	private String firstName;

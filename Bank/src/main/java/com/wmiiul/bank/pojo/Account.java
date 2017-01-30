@@ -16,9 +16,9 @@ public class Account {
 
 	private static Logger logger = Logger.getLogger(Account.class.getName());
 
-	private final int CHECK_COUNTER_INITIAL_VALUE = 99;
-	private final int DEPOSIT_COUNTER_INITIAL_VALUE = 9999;
-	private final double INITIAL_ACCOUNT_BALANCE = 0;
+	private static final int CHECK_COUNTER_INITIAL_VALUE = 99;
+	private static final int DEPOSIT_COUNTER_INITIAL_VALUE = 9999;
+	private static final double INITIAL_ACCOUNT_BALANCE = 0;
 
 	private String accountNumber;
 	private String description;
