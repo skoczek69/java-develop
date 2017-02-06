@@ -5,14 +5,8 @@ public class User {
 	private int id;
 	private String name;
 	private int age;
-	private static int counter = 1;
-
-	private int getNextID() {
-		return counter++;
-	}
 
 	public User(String name, int age) {
-		this.id = getNextID();
 		this.name = name;
 		this.age = age;
 	}
